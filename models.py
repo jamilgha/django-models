@@ -1,6 +1,6 @@
 from django.db import models
 
-
+# Class stores Dec...
 class stores (models.Model):
     store_id=models.IntegerField(primary_key=True)
     store_name=models.CharField(max_length=256,null=False)
@@ -10,7 +10,7 @@ class stores (models.Model):
     city=models. CharField(max_length=256)
     state=models. CharField(max_length=256)
     zip_code=models.CharField(max_length=256)
-
+# Class staffs 
 class staffs (models.Model):
     store_id_fk = models.ForeignKey(stores, on_delete=models.CASCADE,)
     staff_id =models.IntegerField(primary_key=True)
@@ -21,16 +21,16 @@ class staffs (models.Model):
     active =models. IntegerField(max_length=256,null=False)
     store_id =models. IntegerField(max_length=256,null=False)
     manager_id =models.IntegerField(max_length=256)
-
+# Class products categories
 class categories (models.Model):
     category_id=models.IntegerField(primary_key=True)
     category_name=models.CharField(max_length=256,null=False)
-
+# Class products brands
 class brands (models.Model):
     brand_id=models.IntegerField(primary_key=True)
     brand_name=models.CharField(max_length=256,null=False)
     
-
+# Class products 
 class products (models.Model):
     brand_id_fk = models.ForeignKey(stores, on_delete=models.CASCADE,)
     category_id_fk = models.ForeignKey(stores, on_delete=models.CASCADE,)
@@ -41,7 +41,7 @@ class products (models.Model):
     category_id =models.IntegerField(max_length=256,null=False),
     model_year =models.CharField(max_length=4,null=False)
     list_price=models.DecimalField(max_digits=10, decimal_places=2 ,null=False)
-
+# class Store customers 
 class customers (models.Model):
     customer_id=models.IntegerField(primary_key=True)
     first_name=models.CharField(max_length=256,null=False)
@@ -54,7 +54,7 @@ class customers (models.Model):
     zip_code  =models.IntegerField(max_length=15)
 
 
-
+# class orderitems 
 class orderitems (models.Model):
     order_id =models.IntegerField(null=False)
     item_id =models.IntegerField(null=False)
@@ -62,7 +62,7 @@ class orderitems (models.Model):
     quantity =models.IntegerField(null=False)
     list_price =models.DecimalField(max_digits=10, decimal_places=2 ,null=False)
     discount =models.DecimalField(max_digits=10, decimal_places=2 ,null=False)
-
+# class Store Stocks 
 class stocks (models.Model):
     store_id  =models.IntegerField(null=False)
     product_id =models.IntegerField(null=False) 
