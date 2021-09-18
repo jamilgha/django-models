@@ -1,6 +1,5 @@
 v:1.0.0
-#add Role Models 
-#set PRIMARY KEY
-.
-.
-.
+
+* add Role Models
+
+* set PRIMARY KEY
